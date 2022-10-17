@@ -1,0 +1,41 @@
+CREATE TABLE IF NOT EXISTS Team (
+    TeamId INTEGER PRIMARY KEY UNIQUE NOT NULL,
+    Name VARCHAR(255) UNIQUE NOT NULL,
+    CountryOrigin VARCHAR(255) NOT NULL,
+    NameCaptain VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Player (
+    PlayerId INTEGER PRIMARY KEY UNIQUE NOT NULL,
+    Name VARCHAR(255) UNIQUE NOT NULL,
+    FavoriteArmy VARCHAR(255),
+    TeamId INTEGER, 
+    FOREIGN KEY (TeamId) REFERENCES Team(TeamId)
+);
+
+CREATE TABLE IF NOT EXISTS MatchGame (
+    MatchId INTEGER PRIMARY KEY UNIQUE NOT NULL,
+    Result VARCHAR(255),
+    FirstTeam INTEGER, 
+    SecondTeam INTEGER,  
+    FOREIGN KEY (FirstTeam) REFERENCES Team(TeamId), 
+    FOREIGN KEY (SecondTeam) REFERENCES Team(TeamId)
+);
+
+CREATE TABLE IF NOT EXISTS GroupTeams (
+    GroupId VARCHAR(255) PRIMARY KEY UNIQUE NOT NULL,
+    NumberOfTeams INTEGER, 
+    FavoriteTeam INTEGER, 
+    NameReferee VARCHAR(255),
+    FOREIGN KEY (FavoriteTeam) REFERENCES Team(TeamId)
+);
+
+Create TABLE IF NOT EXISTS LinkGroupTeam (
+    GroupTeamId INTEGER PRIMARY KEY UNIQUE NOT NULL,
+    GroupId VARCHAR(255), 
+    TeamId INTEGER,
+    FOREIGN KEY (GroupId) REFERENCES GroupTeams(GroupId),
+    FOREIGN KEY (TeamId) REFERENCES Team(TeamId)
+);  
+
+COMMIT;
