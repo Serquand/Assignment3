@@ -10,7 +10,7 @@ INSERT INTO Team (TeamId, Name, CountryOrigin, NameCaptain) VALUES
     (7, "RepottedGaming", "China", "X-Ben"), 
     (8, "Strut", "France", "Lenaide");
 
-INSERT INTO Player (PlayerId, Name, FavoriteArmy, TeamId) VALUES 
+INSERT INTO Player (PlayerId, Pseudo, FavoriteArmy, TeamId) VALUES 
     (1, "Arzu", "AQH Lavaloon", 1),
     (2, "Gautier", "Full house", 1), 
     (3, "MrBro", "DragBat", 2), 
@@ -42,7 +42,7 @@ INSERT INTO MatchGame (MatchId, Result, FirstTeam, SecondTeam) VALUES
     (11, "6", 6, 8),
     (12, "5", 5, 8);  
     
-INSERT INTO GroupTeams (GroupId, NumberOfTeams, FavoriteTeam, NameReferee) VALUES 
+INSERT INTO GroupTeams (GroupId, NumberOfTeams, FavoriteTeam, PseudoReferee) VALUES 
     (1, 4, 3, "Leeloo"), 
     (2, 4, 6, "Nolium");
 
@@ -55,3 +55,5 @@ INSERT INTO LinkGroupTeam (GroupTeamId, GroupId, TeamId, Ranking) VALUES
     (6, 2, 6, 3), 
     (7, 2, 7, 2),
     (8, 2, 8, 4);
+
+COMMIT;

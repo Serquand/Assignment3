@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Team (
 
 CREATE TABLE IF NOT EXISTS Player (
     PlayerId INTEGER PRIMARY KEY UNIQUE NOT NULL,
-    Name VARCHAR(255) UNIQUE NOT NULL,
+    Pseudo VARCHAR(255) UNIQUE NOT NULL,
     FavoriteArmy VARCHAR(255),
     TeamId INTEGER, 
     FOREIGN KEY (TeamId) REFERENCES Team(TeamId)
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS GroupTeams (
     GroupId VARCHAR(255) PRIMARY KEY UNIQUE NOT NULL,
     NumberOfTeams INTEGER, 
     FavoriteTeam INTEGER, 
-    NameReferee VARCHAR(255),
+    PseudoReferee VARCHAR(255),
     FOREIGN KEY (FavoriteTeam) REFERENCES Team(TeamId)
 );
 
